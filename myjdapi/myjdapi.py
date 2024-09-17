@@ -594,26 +594,37 @@ class Linkgrabber:
 
     def add_links(self,
                   params=[{
+                      "assignJobID": True,
+                      "autoExtract": True,
                       "autostart": False,
-                      "links": None,
-                      "packageName": None,
-                      "extractPassword": None,
-                      "priority": "DEFAULT",
-                      "downloadPassword": None,
+                      "dataURLs": None,
+                      "deepDecrypt": True,
                       "destinationFolder": None,
-                      "overwritePackagizerRules": False
+                      "downloadPassword": None,
+                      "extractPassword": None,
+                      "links": None,
+                      "overwritePackagizerRules": False,
+                      "packageName": None,
+                      "priority": "DEFAULT",
+                      "sourceUrl": None
                   }]):
         """
         Add links to the linkcollector
 
         {
-        "autostart" : false,
-        "links" : null,
-        "packageName" : null,
-        "extractPassword" : null,
-        "priority" : "DEFAULT",
-        "downloadPassword" : null,
-        "destinationFolder" : null
+            "assignJobID": True,
+            "autoExtract": True,
+            "autostart": False,
+            "dataURLs": None,
+            "deepDecrypt": True,
+            "destinationFolder": None,
+            "downloadPassword": None,
+            "extractPassword": None,
+            "links": None,
+            "overwritePackagizerRules": False,
+            "packageName": None,
+            "priority": "DEFAULT",
+            "sourceUrl": None
         }
         """
         resp = self.device.action("/linkgrabberv2/addLinks", params)
