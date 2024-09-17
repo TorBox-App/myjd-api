@@ -432,20 +432,23 @@ class Linkgrabber:
 
     def query_links(self,
                     params=[{
+                        "availability": True,
                         "bytesTotal": True,
                         "comment": True,
-                        "status": True,
                         "enabled": True,
+                        "host": True,
+                        "jobUUIDs": [],
                         "maxResults": -1,
+                        "packageUUIDs": [],
+                        "password": True,
+                        "priority": True,
                         "startAt": 0,
-                        "hosts": True,
+                        "status": True,
                         "url": True,
-                        "availability": True,
+                        "variantID": True,
                         "variantIcon": True,
                         "variantName": True,
-                        "variantID": True,
                         "variants": True,
-                        "priority": True
                     }]):
         """
 
@@ -456,21 +459,23 @@ class Linkgrabber:
         can put your own with your options. All the options available are this
         ones:
         {
-        "bytesTotal"    : false,
-        "comment"       : false,
-        "status"        : false,
-        "enabled"       : false,
-        "maxResults"    : -1,
-        "startAt"       : 0,
-        "packageUUIDs"  : null,
-        "hosts"         : false,
-        "url"           : false,
-        "availability"  : false,
-        "variantIcon"   : false,
-        "variantName"   : false,
-        "variantID"     : false,
-        "variants"      : false,
-        "priority"      : false
+            "availability": True,
+            "bytesTotal": True,
+            "comment": True,
+            "enabled": True,
+            "host": True,
+            "jobUUIDs": [],
+            "maxResults": -1,
+            "packageUUIDs": [],
+            "password": True,
+            "priority": True,
+            "startAt": 0,
+            "status": True,
+            "url": True,
+            "variantID": True,
+            "variantIcon": True,
+            "variantName": True,
+            "variants": True,
         }
         :type: Dictionary
         :rtype: List of dictionaries of this style, with more or less detail based on your options.
