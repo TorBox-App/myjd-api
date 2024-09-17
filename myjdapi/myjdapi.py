@@ -746,6 +746,13 @@ class Linkgrabber:
         """
         pass
 
+    def query_link_crawler_jobs(self, jobIds: list, collectorInfo: bool = False):
+        """
+        Query's the link crawler using a specified jobId from add_links.
+        """
+        params = [collectorInfo, jobIds]
+        resp = self.device.action(self.url + "/queryLinkCrawlerJobs", params)
+        return resp
 
 class Toolbar:
     """
