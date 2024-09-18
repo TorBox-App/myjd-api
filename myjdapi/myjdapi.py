@@ -432,20 +432,22 @@ class Linkgrabber:
 
     def query_links(self,
                     params=[{
-                        "availableOfflineCount": True,
-                        "availableOnlineCount": True,
-                        "availableTempUnknownCount": True,
+                        "availability": True,
                         "bytesTotal": True,
-                        "childCount": True,
                         "comment": True,
                         "enabled": True,
-                        "hosts": True,
+                        "host": True,
+                        "jobUUIDs": [],
                         "maxResults": -1,
                         "packageUUIDs": [],
                         "priority": True,
-                        "saveTo": True,
                         "startAt": 0,
                         "status": True,
+                        "url": True,
+                        "variantID": True,
+                        "variantIcon": True,
+                        "variantName": True,
+                        "variants": True,
                     }]):
         """
 
@@ -456,20 +458,23 @@ class Linkgrabber:
         can put your own with your options. All the options available are this
         ones:
         {
-            "availableOfflineCount": True,
-            "availableOnlineCount": True,
-            "availableTempUnknownCount": True,
+            "availability": True,
             "bytesTotal": True,
-            "childCount": True,
             "comment": True,
             "enabled": True,
-            "hosts": True,
+            "host": True,
+            "jobUUIDs": [],
             "maxResults": -1,
             "packageUUIDs": [],
+            "password": True,
             "priority": True,
-            "saveTo": True,
             "startAt": 0,
             "status": True,
+            "url": True,
+            "variantID": True,
+            "variantIcon": True,
+            "variantName": True,
+            "variants": True,
         }
         :type: Dictionary
         :rtype: List of dictionaries of this style, with more or less detail based on your options.
