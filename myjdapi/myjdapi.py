@@ -3,6 +3,7 @@ import hashlib
 import hmac
 import json
 import time
+from tenacity import retry, stop_after_attempt, stop_after_delay, wait_fixed
 
 try:
     # from urllib.request import urlopen
@@ -1036,6 +1037,7 @@ class Jddevice:
         self.__direct_connection_enabled = False
         self.__direct_connection_info = None
 
+    @retry(stop=(stop_after_delay(120) | stop_after_attempt(10)), wait=wait_fixed(10))
     def action(self, path, params=(), http_action="POST"):
         """Execute any action in the device using the postparams and params.
         All the info of which params are required and what are they default value, type,etc
@@ -1309,6 +1311,7 @@ class Myjdapi:
         """
         return self.__devices
 
+    @retry(stop=(stop_after_delay(120) | stop_after_attempt(10)), wait=wait_fixed(10))
     def get_device(self, device_name=None, device_id=None):
         """
         Returns a jddevice instance of the device
@@ -1327,6 +1330,7 @@ class Myjdapi:
                     return Jddevice(self, device)
         raise (MYJDDeviceNotFoundException("Device not found\n"))
 
+    @retry(stop=(stop_after_delay(120) | stop_after_attempt(10)), wait=wait_fixed(10))
     def request_api(self,
                     path,
                     http_method="GET",

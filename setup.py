@@ -32,5 +32,5 @@ setup(
     ],
     keywords="myjdapi jdownloader my.jdownloader api development",
     packages=find_packages(exclude=["contrib", "docs", "tests"]),
-    install_requires=["requests", "pycryptodome"],
+    install_requires=["requests", "pycryptodome", "tenacity"],
 )
